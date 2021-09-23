@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+<style>
+#my-map {
+	width:960px;
+	height:500px;
+}
+</style>
+</head>
+
+<body>
+	<div id="my-map"></div>
+
+
+</body>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+window.onload = function () {
+<!--    var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {-->
+<!--		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'-->
+<!--	});-->
+
+		var basemap=L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+
+<!--    $.getJSON("census.geojson", function(data) {-->
+
+<!--    var geojson = L.geoJson(data, {-->
+<!--      onEachFeature: function (feature, layer) {-->
+<!--        layer.bindPopup(feature.properties.Area_Name);-->
+<!--      }-->
+<!--    });-->
+
+	let mapOptions={
+		center:[20.4793259, 85.8995998],
+		zoom: 13
+
+	}
+
+    var map = L.map('my-map',mapOptions);
+<!--    .fitBounds(geojson.getBounds());-->
+<!--//    .setView([0.0,-10.0], 2);-->
+
+    basemap.addTo(map);
+<!--    geojson.addTo(map);-->
+  });
+
+};
+</script>
+</html>
